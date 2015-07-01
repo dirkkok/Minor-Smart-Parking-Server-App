@@ -14,3 +14,7 @@
 $app->get('/', function() use ($app) {
     return $app->welcome();
 });
+
+$app->group(['prefix' => 'api'], function () use ($app) {
+    $app->get('set-status/{sensor_id}/{status}', 'App\Http\Controllers\Api\DataController@status');
+});
