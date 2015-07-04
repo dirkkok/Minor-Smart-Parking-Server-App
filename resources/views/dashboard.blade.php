@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sticky Footer Template for Bootstrap</title>
+    <title>Smart Parking Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -68,7 +68,10 @@
             <div class="thumbnail">
                 <div class="caption" id="sensor-{{{ $sensor->id  }}}">
                     <h3>Sensor #{{{ $sensor->id }}}</h3>
-                    <p>{{{ $sensor->address }}}</p>
+                    <p>
+                        <a href="http://maps.google.com/?q={{{ $sensor->address }}}"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></a>
+                        {{{ $sensor->address }}}
+                    </p>
                     <p><a href="#" class="btn btn-block btn-primary" role="button">Laden...</a></p>
                 </div>
             </div>
