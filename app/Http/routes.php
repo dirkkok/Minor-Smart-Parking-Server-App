@@ -16,5 +16,9 @@ $app->get('/', function() use ($app) {
 });
 
 $app->group(['prefix' => 'api'], function () use ($app) {
-    $app->get('set-status/{sensor_id}/{status}', 'App\Http\Controllers\Api\DataController@status');
+    $app->get('set-status/{sensor_id}/{status}', 'App\Http\Controllers\Api\Controller@status');
+    $app->get('all', 'App\Http\Controllers\Api\Controller@all');
 });
+
+
+$app->get('dashboard', 'App\Http\Controllers\Dashboard\Controller@index');
