@@ -21,7 +21,7 @@ class Sensor extends Model
             return false;
         }
 
-        return $last_update->is_available;
+        return $last_update->is_available? true : false;
     }
 
     public function getLastStatusUpdate()
