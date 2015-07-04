@@ -13,6 +13,22 @@ class Sensor extends Model
      */
     protected $table = 'sensors';
 
+    public function getIsAvailableAttribute()
+    {
+        $last_update = $this->getLastStatusUpdate();
+
+        if (! $last_update) {
+            return false;
+        }
+
+        return $last_update->is_available;
+    }
+
+    public function getLastStatusUpdate()
+    {
+        return $this->status_updates()->orderBy('created_at', 'DESC')->first();
+    }
+
 
     public function status_updates()
     {
